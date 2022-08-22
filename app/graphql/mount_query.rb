@@ -1,15 +1,15 @@
 # frozen_string_literal: true
 
-module MountMutation
+module MountQuery
   extend ActiveSupport::Concern
 
   class_methods do
-    def mount_mutation(mutation_class, **custom_kwargs)
+    def mount_query(query_klass, **custom_kwargs)
       # Using an underscored field name symbol will make `graphql-ruby`
       # standardize the field name
       field(
-        mutation_class.graphql_name.underscore.to_sym,
-        resolver: mutation_class,
+        query_klass.graphql_name.underscore.to_sym,
+        resolver: query_klass,
         **custom_kwargs
       )
     end
