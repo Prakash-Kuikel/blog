@@ -1,5 +1,4 @@
 name: "CI"
-
 on:
   pull_request
 
@@ -12,7 +11,7 @@ jobs:
         ports:
           - "5432:5432"
         env:
-          POSTGRES_DB: rails_test
+          POSTGRES_DB: blog_test
           POSTGRES_USER: rails
           POSTGRES_PASSWORD: password
     env:
@@ -21,12 +20,15 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+
       - name: Install Ruby and gems
         uses: ruby/setup-ruby@8f312efe1262fb463d906e9bf040319394c18d3e # v1.92
         with:
           bundler-cache: true
+
       - name: Set up database schema
-        run: bin/rails db:create db:migrate db:setup
+        run: rails db:create db:migrate db:setup
+
       - name: Run tests
         run: bundle exec rspec
   lint:
@@ -34,13 +36,17 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+
       - name: Install Ruby and gems
         uses: ruby/setup-ruby@8f312efe1262fb463d906e9bf040319394c18d3e # v1.92
         with:
           bundler-cache: true
+
       - name: Security audit dependencies
         run: bundle exec bundler-audit --update
+
       - name: Security audit application code
         run: bundle exec brakeman -q -w2
+
       - name: Lint Ruby files
         run: bundle exec rubocop
