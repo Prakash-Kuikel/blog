@@ -2,14 +2,14 @@
 
 def execute(query, current_user: nil, variables: nil)
   HashWithIndifferentAccess.new(
-    MeetingRoomBookingBeSchema.execute(query,
-                                       context: { current_user: current_user }, variables: variables).as_json
+    BlogSchema.execute(query,
+                       context: { current_user: current_user }, variables: variables).as_json
   )
 end
 
 # For Queries
 # When you pass a key, your expectation should read as
-#   :=> user, errors = formatted_response.... where key: user
+#   :=> users, errors = formatted_response.... where key: users
 # Without the key it should read as
 #   :=> data, errors = formatted_response...
 #
@@ -42,8 +42,8 @@ rescue StandardError
      end
 end
 
-# def graphql_response(klass, user, params = {})
-#   resolver = klass.new(field: nil, object: nil, context: { current_user: user })
+# def graphql_response(klass, users, params = {})
+#   resolver = klass.new(field: nil, object: nil, context: { current_user: users })
 #   query(resolver, **params)
 # rescue StandardError => e
 #   record = e.try(:record)
