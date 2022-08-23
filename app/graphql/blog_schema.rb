@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class BlogSchema < GraphQL::Schema
+  GENERIC_ERRORS = [ArgumentError, StandardError].freeze
+
   mutation(Types::MutationType)
   query(Types::QueryType)
 
@@ -28,5 +30,9 @@ class BlogSchema < GraphQL::Schema
   def self.object_from_id(global_id, _query_ctx)
     # For example, use Rails' GlobalID library (https://github.com/rails/globalid):
     GlobalID.find(global_id)
+  end
+
+  rescue_from(*GENERIC_ERRORS) do |err|
+    raise GraphQL::ExecutionError, err
   end
 end

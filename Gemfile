@@ -5,27 +5,27 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.0.3'
 
+gem 'apollo_upload_server'
 gem 'bootsnap', require: false
+gem 'dotenv-rails'
+gem 'graphql'
 gem 'pg', '~> 1.1'
 gem 'puma', '~> 5.0'
 gem 'rails', '~> 7.0.3', '>= 7.0.3.1'
-gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
-gem 'graphql'
-gem 'apollo_upload_server'
 gem 'search_object'
 gem 'search_object_graphql'
-gem 'dotenv-rails'
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 group :development, :test do
-  gem 'debug', platforms: %i[mri mingw x64_mingw]
-  gem 'rubocop-rails'
-  gem 'rubocop-performance'
-  gem 'rubocop-rake'
-  gem 'rubocop-rspec'
   gem 'awesome_print'
+  gem 'debug', platforms: %i[mri mingw x64_mingw]
+  gem 'factory_bot_rails'
   gem 'pry-rails'
   gem 'rspec-rails'
-  gem 'factory_bot_rails'
+  gem 'rubocop-performance'
+  gem 'rubocop-rails'
+  gem 'rubocop-rake'
+  gem 'rubocop-rspec'
 end
 
 group :development do
