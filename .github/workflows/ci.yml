@@ -1,8 +1,6 @@
 name: "CI"
 
-on:
-  pull_request:
-    types: [review_requested]
+on: push
 jobs:
   test:
     runs-on: ubuntu-latest
