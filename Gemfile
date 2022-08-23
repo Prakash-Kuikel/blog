@@ -18,6 +18,8 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 group :development, :test do
   gem 'awesome_print'
+  gem 'brakeman'
+  gem 'bundler-audit'
   gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'factory_bot_rails'
   gem 'pry-rails'
@@ -26,11 +28,6 @@ group :development, :test do
   gem 'rubocop-rails'
   gem 'rubocop-rake'
   gem 'rubocop-rspec'
-  gem 'bundler-audit'
-  gem 'brakeman'
-end
-
-group :development do
 end
 
 group :test do

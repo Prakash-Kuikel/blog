@@ -15,7 +15,6 @@
 /config/master.key
 .idea/
 README.md
-Rakefile.rb
 log/
 package.json
 storage/
