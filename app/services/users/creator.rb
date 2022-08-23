@@ -7,7 +7,8 @@ module Users
     def call
       user = User.create(name: name, email: email)
       return GraphQL::ExecutionError.new('Invalid user') unless user.valid?
-      return user
+
+      user
     end
   end
 end

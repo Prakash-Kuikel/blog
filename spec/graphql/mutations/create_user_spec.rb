@@ -38,7 +38,7 @@ RSpec.describe Mutations::Users::Create do
       response, errors = formatted_response(query(params), key: :createUser)
 
       expect(response[:createUser]).to be_nil
-      expect(errors).to_not be_nil
+      expect(errors).not_to be_nil
     end
   end
 
@@ -60,5 +60,3 @@ RSpec.describe Mutations::Users::Create do
     GQL
   end
 end
-
-
