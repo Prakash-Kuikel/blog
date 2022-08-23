@@ -1,44 +1,21 @@
-name: "CI"
-on:
-  pull_request
+name: Test
+
+on: pull_request
 
 jobs:
   test:
-    runs-on: ubuntu-latest
-    services:
-      postgres:
-        image: postgres:11-alpine
-        ports:
-          - "5432:5432"
-        env:
-          POSTGRES_DB: blog_test
-          POSTGRES_USER: rails
-          POSTGRES_PASSWORD: password
+    runs-on: [self-hosted, do]
     env:
       RAILS_ENV: test
-      DATABASE_URL: "postgres://rails:password@localhost:5432/blog_test"
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+      - name: Install required package
+        run: sudo apt-get install -y libpq-dev poppler-utils libdmtx-dev libvips42
 
-      - name: Install Ruby and gems
-        uses: ruby/setup-ruby@8f312efe1262fb463d906e9bf040319394c18d3e # v1.92
-        with:
-          bundler-cache: true
+      - name: Checkout
+        uses: actions/checkout@v2
 
-      - name: Set up database schema
-        run: bin/rake create migrate setup
-
-      - name: Run tests
-        run: bundle exec rspec
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Install Ruby and gems
-        uses: ruby/setup-ruby@8f312efe1262fb463d906e9bf040319394c18d3e # v1.92
+      - name: Ruby setup and install gems
+        uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
 
@@ -50,3 +27,10 @@ jobs:
 
       - name: Lint Ruby files
         run: bundle exec rubocop
+
+      - name: Run test
+        env:
+          DATABASE_URL: postgres://postgres:password@localhost:5432/blog_test
+        run: |
+          RAILS_ENV=test bundle exec rake db:create db:schema:load
+          bundle exec rspec
