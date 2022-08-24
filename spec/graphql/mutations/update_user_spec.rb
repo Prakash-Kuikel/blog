@@ -17,7 +17,7 @@ RSpec.describe Mutations::Users::Update do
     end
 
     it 'must update fields' do
-      response, errors = formatted_response(query, variables: variables, key: :updateUser, )
+      response, errors = formatted_response(query, variables: variables, key: :updateUser)
 
       expect(errors).to be_nil
       expect(response[:updateUser]).to be_truthy

@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Mutations::Posts::Create do
-  let_it_be(:user) { create(:user)}
+  let_it_be(:user) { create(:user) }
 
   describe 'with valid params' do
     let(:variables) do

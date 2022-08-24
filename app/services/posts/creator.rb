@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Posts
   class Creator < ApplicationService
     def call
