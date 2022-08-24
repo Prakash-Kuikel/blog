@@ -3,7 +3,7 @@
 module Users
   class Deleter < ApplicationService
     def call
-      User.find_by(params).destroy!
+      User.find(params[:id]).destroy!
     end
   end
 end
