@@ -1,37 +1,38 @@
+#require_relative '/lib/rubocop/cop/metrics/selise_method_length.rb'
+
 require:
-  - ./lib/rubocop/cop/metrics/selise_method_length.rb
-  - rubocop-performance
-  - rubocop-rspec
-  - rubocop-rails
+#  - ./lib/rubocop/cop/metrics/selise_method_length.rb
   - rubocop-rake
+  - rubocop-rails
+  - rubocop-rspec
+  - rubocop-performance
 
 AllCops:
   Exclude:
     - bin/**/*
     - tmp/**/*
     - vendor/**/*
-    - lib/tasks/stitch_schema.rake
   DisplayCopNames: true
   DisplayStyleGuide: true
   TargetRubyVersion: 3.0.3
   NewCops: enable
 
-Metrics/SeliseMethodLength:
-  CountComments: false
-  Max: 10
-  IgnoredMethods:
-    - resolve
-    - change
-    - paginated_collection
-    - up
-    - prepare_variables
-    - pending_reconfirmation?
-    - down
-    - error_class
-    - create_service_now_ticket!
+#Metrics/SeliseMethodLength:
+#  CountComments: false
+#  Max: 10
+#  IgnoredMethods:
+#    - resolve
+#    - change
+#    - paginated_collection
+#    - up
+#    - prepare_variables
+#    - pending_reconfirmation?
+#    - down
+#    - error_class
+#    - create_service_now_ticket!
 
 Metrics/MethodLength:
-  Enabled: false # Use SeliseMethodLength instead
+  Enabled: false
 
 Metrics/BlockLength:
   IgnoredMethods:
@@ -92,4 +93,10 @@ RSpec/VariableName:
     - Authorization
 
 RSpec/AnyInstance:
+  Enabled: false
+
+Rails/NotNullColumn:
+  Enabled: false
+
+Rails/FilePath:
   Enabled: false
