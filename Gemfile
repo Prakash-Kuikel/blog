@@ -20,9 +20,8 @@ group :development, :test do
   gem 'awesome_print'
   gem 'brakeman'
   gem 'bundler-audit'
-  gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'factory_bot_rails'
-  gem 'pry-rails'
+  gem 'pry'
   gem 'rspec-rails'
   gem 'rubocop-performance'
   gem 'rubocop-rails'
