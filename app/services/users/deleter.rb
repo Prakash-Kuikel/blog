@@ -2,10 +2,8 @@
 
 module Users
   class Deleter < ApplicationService
-    attr_accessor :id
-
     def call
-      User.find(id).destroy!
+      User.find_by(params).destroy!
     end
   end
 end

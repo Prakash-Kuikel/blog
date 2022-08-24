@@ -2,10 +2,8 @@
 
 module Users
   class Creator < ApplicationService
-    attr_accessor :name, :email
-
     def call
-      User.create!(name: name, email: email)
+      User.create!(params)
     end
   end
 end
