@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+return if Rails.env.production?
+
 # Mark existing migrations as safe
 StrongMigrations.start_after = 20_220_822_051_531
 
