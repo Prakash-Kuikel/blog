@@ -30,7 +30,7 @@ RSpec.describe Mutations::Users::Create do
     let(:params) do
       {
         name: '',
-        email: ''
+        email: 'not_an_email'
       }
     end
 

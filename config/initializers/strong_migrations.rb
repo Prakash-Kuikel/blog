@@ -6,7 +6,7 @@ return if Rails.env.production?
 StrongMigrations.start_after = 20_220_822_051_531
 
 # Set timeouts for migrations
-# If you use PgBouncer in transaction mode, delete these lines and set timeouts on the database user
+# If you use PgBouncer in transaction mode, delete.rb these lines and set timeouts on the database user
 StrongMigrations.lock_timeout = 10.seconds
 StrongMigrations.statement_timeout = 1.hour
 
