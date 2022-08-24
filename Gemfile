@@ -28,6 +28,7 @@ group :development, :test do
   gem 'rubocop-rake'
   gem 'rubocop-rspec'
   gem 'strong_migrations'
+  gem 'faker'
 end
 
 group :test do

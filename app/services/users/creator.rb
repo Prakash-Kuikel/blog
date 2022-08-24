@@ -5,10 +5,7 @@ module Users
     attr_accessor :name, :email
 
     def call
-      user = User.create(name: name, email: email)
-      return GraphQL::ExecutionError.new('Invalid user') unless user.valid?
-
-      user
+      User.create!(name: name, email: email)
     end
   end
 end
