@@ -216,6 +216,8 @@ GEM
       search_object (~> 1.2.2)
     shoulda-matchers (5.1.0)
       activesupport (>= 5.2.0)
+    strong_migrations (1.2.0)
+      activerecord (>= 5.2)
     strscan (3.0.4)
     test-prof (1.0.10)
     thor (1.2.1)
@@ -252,6 +254,7 @@ DEPENDENCIES
   search_object
   search_object_graphql
   shoulda-matchers
+  strong_migrations
   test-prof
   tzinfo-data
 

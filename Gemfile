@@ -27,6 +27,7 @@ group :development, :test do
   gem 'rubocop-rails'
   gem 'rubocop-rake'
   gem 'rubocop-rspec'
+  gem 'strong_migrations'
 end
 
 group :test do
