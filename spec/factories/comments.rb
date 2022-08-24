@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :comment do
-    body { 'This is a dummy comment' }
+    body { Faker::Lorem.sentence }
     association :user
     association :post
   end
