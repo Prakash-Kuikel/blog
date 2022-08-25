@@ -21,6 +21,7 @@ group :development, :test do
   gem 'brakeman'
   gem 'bundler-audit'
   gem 'factory_bot_rails'
+  gem 'faker'
   gem 'pry'
   gem 'rspec-rails'
   gem 'rubocop-performance'

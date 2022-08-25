@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :post do
-    body { 'This is a dummy post' }
+    body { Faker::Lorem.sentence }
     association :user
   end
 end
