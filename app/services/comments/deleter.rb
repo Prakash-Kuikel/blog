@@ -7,4 +7,3 @@ module Comments
     end
   end
 end
-
