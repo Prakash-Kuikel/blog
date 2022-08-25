@@ -3,7 +3,7 @@
 module Posts
   class Deleter < ApplicationService
     def call
-      current_user.posts.find(params[:id]).destroy!
+      Post.find(params[:id]).destroy!
     end
   end
 end
