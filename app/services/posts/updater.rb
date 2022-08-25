@@ -3,7 +3,7 @@
 module Posts
   class Updater < ApplicationService
     def call
-      current_user.posts.find(params.delete(:id)).update!(params)
+      Post.find(params.delete(:id)).update!(params)
     end
   end
 end
