@@ -27,7 +27,7 @@ RSpec.describe Mutations::Posts::Update do
     end
   end
 
-  context 'when user does not exist' do
+  context 'when post does not exist' do
     let(:variables) do
       {
         input: {
@@ -42,7 +42,7 @@ RSpec.describe Mutations::Posts::Update do
     it 'must raise an error' do
       response, errors = formatted_response(query, variables: variables, current_user: user, key: :updatePost)
 
-      expect(response[:updateUser]).to be_nil
+      expect(response[:updatePost]).to be_nil
       expect(errors).not_to be_nil
     end
   end

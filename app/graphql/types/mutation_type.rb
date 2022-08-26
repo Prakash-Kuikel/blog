@@ -15,5 +15,6 @@ module Types
 
     mount_mutation Mutations::Comments::Create
     mount_mutation Mutations::Comments::Delete
+    mount_mutation Mutations::Comments::Update
   end
 end
