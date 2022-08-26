@@ -10,5 +10,6 @@ module Types
     mount_mutation Mutations::Users::Update
 
     mount_mutation Mutations::Posts::Create
+    mount_mutation Mutations::Posts::Delete
   end
 end
