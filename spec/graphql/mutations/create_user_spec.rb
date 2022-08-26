@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe Mutations::Users::Create do
-  describe 'with valid params' do
+  context 'with valid params' do
     let(:params) do
       {
         name: 'Prakash',
@@ -26,7 +26,7 @@ RSpec.describe Mutations::Users::Create do
     end
   end
 
-  describe 'with invalid params' do
+  context 'with invalid params' do
     let(:params) do
       {
         name: '',

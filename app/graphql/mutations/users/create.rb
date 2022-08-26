@@ -6,7 +6,7 @@ module Mutations
       graphql_name 'CreateUser'
       description 'Creates and returns new user'
 
-      argument :attributes, Attributes::User, required: true
+      argument :attributes, Attributes::Users::Create, required: true
 
       type Types::UserType
 
