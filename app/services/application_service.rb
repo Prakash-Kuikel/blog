@@ -3,6 +3,8 @@
 class ApplicationService
   include Assigner
 
+  attr_accessor :current_user
+
   def initialize(args = {})
     assign_attributes(args)
   end
