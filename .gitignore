@@ -20,6 +20,8 @@ package.json
 storage/
 tmp/
 vendor/
+schema.graphql
+schema.json
 
 /public/packs
 /public/packs-test
