@@ -4,55 +4,49 @@ require 'rails_helper'
 
 RSpec.describe Mutations::Users::Create do
   context 'with valid params' do
-    let(:params) do
+    let(:variables) do
       {
-        name: 'Prakash',
-        email: 'pk@selise.ch'
-      }
-    end
-
-    let(:expected_response) do
-      {
-        name: 'Prakash',
-        email: 'pk@selise.ch'
+        input: {
+          attributes: {
+            name: Faker::Name.name,
+            email: Faker::Internet.email
+          }
+        }
       }
     end
 
     it 'returns new user' do
-      response, errors = formatted_response(query(params), key: :createUser)
+      response, errors = formatted_response(query, variables: variables, key: :createUser)
 
       expect(errors).to be_nil
-      expect(response[:createUser]).to match(expected_response)
+      expect(response[:createUser]).to match(variables[:input][:attributes])
     end
   end
 
   context 'with invalid params' do
-    let(:params) do
+    let(:variables) do
       {
-        name: '',
-        email: 'not_an_email'
+        input: {
+          attributes: {
+            name: '',
+            email: 'not_an_email'
+          }
+        }
       }
     end
 
     it 'raises error' do
-      response, errors = formatted_response(query(params), key: :createUser)
+      response, errors = formatted_response(query, variables: variables, key: :createUser)
 
       expect(response[:createUser]).to be_nil
       expect(errors).not_to be_nil
     end
   end
 
-  def query(args = {})
+  def query
     <<~GQL
-      mutation {
-        createUser(
-          input: {
-            attributes: {
-              name: "#{args[:name]}"
-              email: "#{args[:email]}"
-            }
-          }
-        ){
+      mutation($input: createUserInput!){
+        createUser(input: $input){
           name
           email
         }

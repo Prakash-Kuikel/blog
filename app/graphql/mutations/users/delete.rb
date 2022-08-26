@@ -3,7 +3,7 @@
 module Mutations
   module Users
     class Delete < BaseMutation
-      graphql_name 'DeleteUser'
+      graphql_name 'deleteUser'
       description 'Deletes user based on id'
 
       class UserDeleteAttributes < Types::BaseInputObject
@@ -11,11 +11,10 @@ module Mutations
       end
 
       argument :attributes, UserDeleteAttributes, required: true
-
       type Boolean
 
       def resolve(attributes:)
-        ::Users::Deleter.call(attributes)
+        ::Users::Deleter.call(params: attributes.to_h)
       end
     end
   end

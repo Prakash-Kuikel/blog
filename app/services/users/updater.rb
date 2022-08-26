@@ -2,11 +2,8 @@
 
 module Users
   class Updater < ApplicationService
-    attr_accessor :id, :name, :email
-
     def call
-      user = User.find(id)
-      user.update!(name: name, email: email)
+      User.find(params.delete(:id)).update!(params)
     end
   end
 end

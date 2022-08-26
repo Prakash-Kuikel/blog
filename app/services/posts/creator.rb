@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-module Users
+module Posts
   class Creator < ApplicationService
     def call
-      User.create!(params)
+      current_user.posts.create!(params)
     end
   end
 end

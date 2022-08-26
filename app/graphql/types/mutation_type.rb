@@ -8,5 +8,7 @@ module Types
     mount_mutation Mutations::Users::Delete
 
     mount_mutation Mutations::Users::Update
+
+    mount_mutation Mutations::Posts::Create
   end
 end
