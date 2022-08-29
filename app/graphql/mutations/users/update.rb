@@ -10,7 +10,7 @@ module Mutations
       type Boolean
 
       def resolve(attributes:)
-        ::Users::Updater.call(params: attributes.to_h)
+        ::Users::Updater.call(params: attributes.to_h, current_user: context[:current_user])
       end
     end
   end

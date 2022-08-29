@@ -8,6 +8,8 @@ abort('The Rails environment is running in production mode!') if Rails.env.produ
 require 'rspec/rails'
 require 'test_prof/recipes/rspec/let_it_be'
 require 'faker'
+require 'simplecov'
+SimpleCov.start
 
 Dir[Rails.root.join('spec', 'support', '**', '*.rb')].each { |f| require f }
 

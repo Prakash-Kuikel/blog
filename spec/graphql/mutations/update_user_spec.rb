@@ -3,8 +3,9 @@
 require 'rails_helper'
 
 RSpec.describe Mutations::Users::Update do
+  let_it_be(:user) { create(:user) }
+
   context 'when user exists' do
-    let(:user) { create(:user) }
     let(:variables) do
       {
         input: {
@@ -17,7 +18,7 @@ RSpec.describe Mutations::Users::Update do
     end
 
     it 'must update fields' do
-      response, errors = formatted_response(query, variables: variables, key: :updateUser)
+      response, errors = formatted_response(query, variables: variables, current_user: user, key: :updateUser)
 
       expect(errors).to be_nil
       expect(response[:updateUser]).to be_truthy
@@ -38,7 +39,7 @@ RSpec.describe Mutations::Users::Update do
     end
 
     it 'must raise an error' do
-      response, errors = formatted_response(query, variables: variables, key: :updateUser)
+      response, errors = formatted_response(query, variables: variables, current_user: user, key: :updateUser)
 
       expect(response[:updateUser]).to be_nil
       expect(errors).not_to be_nil
