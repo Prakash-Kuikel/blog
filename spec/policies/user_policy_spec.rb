@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe UserPolicy do
@@ -9,7 +11,7 @@ RSpec.describe UserPolicy do
       let(:policy) { described_class.new(user1, user: user1) }
 
       it 'must authorize deletion of user' do
-        expect(policy.delete?).to eq(true)
+        expect(policy.delete?).to be(true)
       end
     end
 
@@ -17,7 +19,7 @@ RSpec.describe UserPolicy do
       let(:policy) { described_class.new(user1, user: user2) }
 
       it 'must not authorize deletion of user' do
-        expect(policy.delete?).to eq(false)
+        expect(policy.delete?).to be(false)
       end
     end
   end
@@ -27,7 +29,7 @@ RSpec.describe UserPolicy do
       let(:policy) { described_class.new(user1, user: user1) }
 
       it 'must authorize updation of user' do
-        expect(policy.update?).to eq(true)
+        expect(policy.update?).to be(true)
       end
     end
 
@@ -35,7 +37,7 @@ RSpec.describe UserPolicy do
       let(:policy) { described_class.new(user1, user: user2) }
 
       it 'must not authorize updation of user' do
-        expect(policy.update?).to eq(false)
+        expect(policy.update?).to be(false)
       end
     end
   end

@@ -5,6 +5,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.0.3'
 
+gem 'action_policy'
+gem 'action_policy-graphql'
 gem 'apollo_upload_server'
 gem 'bootsnap', require: false
 gem 'dotenv-rails'
@@ -15,8 +17,6 @@ gem 'rails', '~> 7.0.3', '>= 7.0.3.1'
 gem 'search_object'
 gem 'search_object_graphql'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
-gem 'action_policy'
-gem 'action_policy-graphql'
 
 group :development, :test do
   gem 'awesome_print'
@@ -30,8 +30,8 @@ group :development, :test do
   gem 'rubocop-rails'
   gem 'rubocop-rake'
   gem 'rubocop-rspec'
-  gem 'strong_migrations'
   gem 'simplecov'
+  gem 'strong_migrations'
 end
 
 group :test do

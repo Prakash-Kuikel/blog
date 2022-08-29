@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe PostPolicy do
@@ -10,7 +12,7 @@ RSpec.describe PostPolicy do
       let(:policy) { described_class.new(post1, user: user1) }
 
       it 'must authorize deletion of post' do
-        expect(policy.delete?).to eq(true)
+        expect(policy.delete?).to be(true)
       end
     end
 
@@ -18,7 +20,7 @@ RSpec.describe PostPolicy do
       let(:policy) { described_class.new(post1, user: user2) }
 
       it 'must not authorize deletion of post' do
-        expect(policy.delete?).to eq(false)
+        expect(policy.delete?).to be(false)
       end
     end
   end
@@ -28,7 +30,7 @@ RSpec.describe PostPolicy do
       let(:policy) { described_class.new(post1, user: user1) }
 
       it 'must authorize updation of post' do
-        expect(policy.update?).to eq(true)
+        expect(policy.update?).to be(true)
       end
     end
 
@@ -36,7 +38,7 @@ RSpec.describe PostPolicy do
       let(:policy) { described_class.new(post1, user: user2) }
 
       it 'must not authorize updation of post' do
-        expect(policy.update?).to eq(false)
+        expect(policy.update?).to be(false)
       end
     end
   end
