@@ -3,7 +3,9 @@
 module Posts
   class Deleter < ApplicationService
     def call
-      Post.find(params[:id]).destroy!
+      post = Post.find(params[:id])
+      authorize! post, to: :delete?
+      post.destroy!
     end
   end
 end

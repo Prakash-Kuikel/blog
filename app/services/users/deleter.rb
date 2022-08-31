@@ -3,7 +3,9 @@
 module Users
   class Deleter < ApplicationService
     def call
-      User.find(params[:id]).destroy!
+      user = User.find(params[:id])
+      authorize! user, to: :delete?
+      user.destroy!
     end
   end
 end

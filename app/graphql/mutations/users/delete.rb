@@ -14,7 +14,7 @@ module Mutations
       type Boolean
 
       def resolve(attributes:)
-        ::Users::Deleter.call(params: attributes.to_h)
+        ::Users::Deleter.call(params: attributes.to_h, current_user: context[:current_user])
       end
     end
   end

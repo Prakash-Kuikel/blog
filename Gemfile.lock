@@ -1,6 +1,12 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    action_policy (0.6.3)
+      ruby-next-core (>= 0.14.0)
+    action_policy-graphql (0.5.3)
+      action_policy (>= 0.5.0)
+      graphql (>= 1.9.3)
+      ruby-next-core (>= 0.10.0)
     actioncable (7.0.3.1)
       actionpack (= 7.0.3.1)
       activesupport (= 7.0.3.1)
@@ -83,6 +89,7 @@ GEM
     crass (1.0.6)
     diff-lcs (1.5.0)
     digest (3.1.0)
+    docile (1.4.0)
     dotenv (2.8.1)
     dotenv-rails (2.8.1)
       dotenv (= 2.8.1)
@@ -211,6 +218,7 @@ GEM
       rubocop (~> 1.0)
     rubocop-rspec (2.12.1)
       rubocop (~> 1.31)
+    ruby-next-core (0.15.2)
     ruby-progressbar (1.11.0)
     search_object (1.2.5)
     search_object_graphql (1.0.3)
@@ -218,6 +226,12 @@ GEM
       search_object (~> 1.2.2)
     shoulda-matchers (5.1.0)
       activesupport (>= 5.2.0)
+    simplecov (0.21.2)
+      docile (~> 1.1)
+      simplecov-html (~> 0.11)
+      simplecov_json_formatter (~> 0.1)
+    simplecov-html (0.12.3)
+    simplecov_json_formatter (0.1.4)
     strong_migrations (1.2.0)
       activerecord (>= 5.2)
     strscan (3.0.4)
@@ -236,6 +250,8 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  action_policy
+  action_policy-graphql
   apollo_upload_server
   awesome_print
   bootsnap
@@ -257,6 +273,7 @@ DEPENDENCIES
   search_object
   search_object_graphql
   shoulda-matchers
+  simplecov
   strong_migrations
   test-prof
   tzinfo-data

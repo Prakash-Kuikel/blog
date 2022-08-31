@@ -6,7 +6,7 @@ module Types
     include GraphQL::Types::Relay::HasNodesField
     include MountQuery
 
-    mount_query Resolvers::PostResolver
+    mount_query Resolvers::PostResolver, authorize: true
     mount_query Resolvers::PostsResolver
 
     mount_query Resolvers::CommentResolver

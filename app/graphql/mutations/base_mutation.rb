@@ -3,6 +3,7 @@
 module Mutations
   class BaseMutation < GraphQL::Schema::RelayClassicMutation
     include GraphqlHelper
+    include ActionPolicy::GraphQL::Behaviour
 
     argument_class Types::BaseArgument
     field_class Types::BaseField

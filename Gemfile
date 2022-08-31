@@ -5,6 +5,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.0.3'
 
+gem 'action_policy'
+gem 'action_policy-graphql'
 gem 'apollo_upload_server'
 gem 'bootsnap', require: false
 gem 'dotenv-rails'
@@ -28,6 +30,7 @@ group :development, :test do
   gem 'rubocop-rails'
   gem 'rubocop-rake'
   gem 'rubocop-rspec'
+  gem 'simplecov'
   gem 'strong_migrations'
 end
 

@@ -3,7 +3,9 @@
 module Users
   class Updater < ApplicationService
     def call
-      User.find(params.delete(:id)).update!(params)
+      user = User.find(params.delete(:id))
+      authorize! user, to: :update?
+      user.update!(params)
     end
   end
 end

@@ -3,7 +3,9 @@
 module Comments
   class Updater < ApplicationService
     def call
-      Comment.find(params.delete(:id)).update!(params)
+      comment = Comment.find(params.delete(:id))
+      authorize! comment, to: :update?
+      comment.update!(params)
     end
   end
 end

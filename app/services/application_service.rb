@@ -2,6 +2,7 @@
 
 class ApplicationService
   include Assigner
+  include ActionPolicy::GraphQL::Behaviour
 
   attr_accessor :current_user, :params
 
