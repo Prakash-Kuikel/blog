@@ -25,12 +25,9 @@ rescue StandardError
   [response[:data], response.dig(:errors, 0, :message)] # for easier debugging during failures
 end
 
-def paginated_collection(node, query_string, current_user: nil)
-  response = execute(query_string, current_user: current_user)
-  [
-    response.dig(:data, node, :edges)&.pluck(:node),
-    response[:errors]
-  ]
+def paginated_collection(node, query_string, current_user: nil, variables: nil)
+  response = execute(query_string, current_user: current_user, variables: variables)
+  [response.dig(:data, node, :edges)&.pluck(:node), response[:errors]]
 rescue StandardError
   error = response.dig(:errors, 0)
 
